@@ -17,15 +17,18 @@ import java.util.List;
 public class Client {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // genera valor automatico
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idClient;
     private String email;
     private String password;
     private String name;
     private int age;
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "client")
-    @JsonIgnoreProperties("client")
+    @JsonIgnoreProperties({"client"})
     private List<Message> messages;
 
+    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "client")
+    @JsonIgnoreProperties("client")
+    private List<Reservation> reservations;
 
 }
