@@ -28,10 +28,11 @@ public class Reservation {
     @ManyToOne
     @JoinColumn(name = "reservation_id_client")
     @JsonIgnoreProperties({"reservations", "messages"})
-//    @JsonIgnoreProperties({"reservations"})
     private Client client;
-//
-//    // esto debe ser una llave foranea
-//    private int score;
+
+    @ManyToOne
+    @JoinColumn(name = "reservation_id_score")
+    @JsonIgnoreProperties("reservations")
+    private Score score;
 
 }
