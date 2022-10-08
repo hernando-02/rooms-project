@@ -18,24 +18,21 @@ public class Room {
     @GeneratedValue( strategy = GenerationType.IDENTITY)
     private long id;
     private String name;
+    private String hotel;
     private int stars;
+    private String description;
+
     @ManyToOne
     @JoinColumn(name = "category_id")
     @JsonIgnoreProperties("rooms")
     private Category category;
-    private String hotel;
-    private String description;
 
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "room")
-    @JsonIgnoreProperties("room")
+    @JsonIgnoreProperties({"room", "client"})
     private List<Message> messages;
 
-
-
-
-
-
-
-
+    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "room")
+    @JsonIgnoreProperties({"room"})
+    private List<Reservation> reservations;
 
 }
