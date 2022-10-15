@@ -22,12 +22,28 @@ public class ApiReservation {
         return service.getReservations();
     }
 
+    @GetMapping("/{id}")
+    public Reservation getReservation(long id){
+        return service.getReservation(id);
+    }
+
     @PostMapping("/save")
     public ResponseEntity saveReservation(@RequestBody Reservation reservation){
         service.saveReservation(reservation);
         return ResponseEntity.status(201).build();
     }
 
+    @PutMapping("/update")
+    public ResponseEntity updateReservation(@RequestBody Reservation reservation){
+        service.updateReservation(reservation);
+        return ResponseEntity.status(201).build();
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity deleteReservation(@PathVariable long id){
+        service.deleteReservation(id);
+        return ResponseEntity.status(204).build();
+    }
 
 
 }

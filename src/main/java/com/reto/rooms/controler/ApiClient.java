@@ -21,10 +21,28 @@ public class ApiClient {
         return service.getClientes();
     }
 
+    @GetMapping("/{id}")
+    public Client getClient(long id){
+        return service.getClient(id);
+    }
+
     @PostMapping("/save")
     public ResponseEntity saveClient(@RequestBody Client client){
         service.saveClient(client);
         return ResponseEntity.status(201).build();
+    }
+
+    @PutMapping("/update")
+    public ResponseEntity updateClient(@RequestBody Client client){
+        service.updateClient(client);
+        return ResponseEntity.status(201).build();
+    }
+
+    // delete
+    @DeleteMapping("/{id}")
+    public ResponseEntity deleteClient(@PathVariable long id){
+        service.deleteClient(id);
+        return ResponseEntity.status(204).build();
     }
 
 }
