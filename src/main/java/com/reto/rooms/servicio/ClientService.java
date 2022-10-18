@@ -33,7 +33,7 @@ public class ClientService {
     //put
     public Client updateClient(Client client){
         Client clientOld= getClient(client.getIdClient());
-        clientOld.setEmail(client.getEmail());
+//        clientOld.setEmail(client.getEmail());
         clientOld.setPassword(client.getPassword());
         clientOld.setName(client.getName());
         clientOld.setAge(client.getAge());

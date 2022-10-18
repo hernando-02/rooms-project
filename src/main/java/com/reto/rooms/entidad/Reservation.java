@@ -19,7 +19,7 @@ public class Reservation {
     private long idReservation;
     private Date startDate;
     private Date devolutionDate;
-    private String status;
+    private String status="created";
     @ManyToOne
     @JoinColumn(name = "reservation_id_room")
     @JsonIgnoreProperties({"reservations"})
